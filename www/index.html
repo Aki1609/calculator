@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.4.5.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#calbtn').click(function(){
+              $('#num1').html($('#number1').val());
+              $('#operator').html($('#select :selected').text());
+              $('#num2').html($('#number2').val());
+             
+
+              var n1 = ($('#number1').val());
+              var n2 = ($('#number2').val());
+              var opp = ($('#select :selected').text());
+              
+              //var x = parseInt(n1);
+              //var y = parseInt(n2);
+              //$('#answer').html(parseInt(n1) + opp + parseInt(n2));
+
+             if (opp == "+"){
+              	$('#answer').html(parseFloat(n1) + parseFloat(n2));
+              }else if (opp == "-"){
+              	$('#answer').html(parseFloat(n1) - parseFloat(n2));               
+              }else if (opp == "*"){
+              	$('#answer').html(parseFloat(n1) * parseFloat(n2));
+              } else if(opp == "/"){
+              	$('#answer').html(parseFloat(n1) / parseFloat(n2));
+              }else{
+              	alert("An error occured");
+              }
+			});
+			
+		});
+	</script>
+</head>
+<body>
+<div data-role="page" id="home" data-theme="a">
+    
+    <!--/header 1-->	
+	<div data-role="header">
+		<h1>Simple Calculator</h1>
+	</div>
+    
+    <!--Nav Bar-->
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top">Home</a></li>
+			<li><a href="#cal" class="ui-btn ui-icon-grid ui-btn-icon-top">Calculator</a></li>
+			<li><a href="#help" class="ui-btn ui-icon-info ui-btn-icon-top">Help</a></li>
+		</ul>
+	</div>
+    <!--Main Content-->
+	<div role="main" class="ui-content">
+		<p>This is a jQuery mobile exercise which provides the user with a calculator for basic mathematical operations</p>
+	</div>
+    <!--footer-->
+	<div data-role="footer">
+        <h2>Homework</h2>
+    </div>
+</div>
+    
+<!--Page 2-->
+<div data-role="page" id="cal" data-theme="a">
+    
+    <!--/header 1-->	
+	<div data-role="header">
+		<h1>Simple Calculator</h1>
+	</div>
+    
+    <!--Nav Bar-->
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#home" class="ui-btn ui-icon-home ui-btn-icon-top">Home</a></li>
+			<li><a href="#cal" class="ui-btn ui-icon-grid ui-btn-icon-top">Calculator</a></li>
+			<li><a href="#help" class="ui-btn ui-icon-info ui-btn-icon-top">Help</a></li>
+		</ul>
+	</div>
+
+	
+	<!--1st Number Input-->	
+     <input type="number" data-clear-btn="true" name="number1" id="number1" value="">
+     <!--Dropdown list-->
+          <select name="select" id="select">
+             <option value="1">+</option>
+             <option value="2">-</option>
+             <option value="3">*</option>
+             <option value="4">/</option>
+          </select>
+      
+      <!--2nd Number Input-->	
+      <input type="number" data-clear-btn="true" name="number2" id="number2" value="">
+     
+      <!--Calculate Button-->
+      <button id="calbtn" class="ui-btn" onclick="window.location.href = '#result';">Calculate</button>
+
+      <!--Footer-->
+      <div data-role="footer">
+        <h2>Homework</h2>
+      </div>
+     
+</div>
+
+<div data-role="page" id="help" data-theme="a">
+	  <!--/header 1-->	
+	<div data-role="header">
+		<h1>Simple Calculator</h1>
+	</div>
+    
+    <!--Nav Bar-->
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#home" class="ui-btn ui-icon-home ui-btn-icon-top">Home</a></li>
+			<li><a href="#cal" class="ui-btn ui-icon-grid ui-btn-icon-top">Calculator</a></li>
+			<li><a href="#help" class="ui-btn ui-icon-info ui-btn-icon-top">Help</a></li>
+		</ul>
+	</div>
+
+	<div role="main" class="ui-content">
+		<p>This is the help section and provides basic information about how to use the calculator</p>
+	
+	<!--More Info Button-->
+    <button class="ui-btn ui-icon-info ui-btn-icon-left" onclick="window.location.href = '#popmoreinfo';">More Info</button>
+    </div>
+
+    <div data-role="footer">
+        <h2>Homework</h2>
+    </div>
+   
+</div>	
+
+
+<!--page4-->
+	<div data-role="page" data-dialog="true" id="popmoreinfo" data-theme="a">
+		<div data-role="header">
+			<h1>More Info</h1>
+		</div>
+
+	<div role="main" class="ui-content">
+		<p>You have requested more information about the App!</p>
+	
+	<!--More Info Button-->
+    <button class="ui-btn ui-icon-back ui-btn-icon-left" onclick="window.location.href = '#help';">Dismiss</button>
+    </div>	
+</div><!--end of page four-->
+
+<!--page 5-->
+<div data-role="page" id="result" data-theme="a">
+    
+    <!--/header 1-->	
+	<div data-role="header">
+		<h1>Results</h1>
+	</div>
+    
+    <!--Nav Bar-->
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#home" class="ui-btn ui-icon-home ui-btn-icon-top">Home</a></li>
+			<li><a href="#cal" class="ui-btn ui-icon-grid ui-btn-icon-top">Calculator</a></li>
+			<li><a href="#help" class="ui-btn ui-icon-info ui-btn-icon-top">Help</a></li>
+		</ul>
+	</div>
+
+	<div role="main" class="ui-content">
+		<p>Operation:</p>  
+        <b id="num1"> </b><b id="operator"> </b><b id="num2"> </b>  
+
+        <p>Results:</p>
+        <b id="answer"></b>
+      
+        <button class="ui-btn ui-icon-back ui-btn-icon-left" onclick="window.location.href = '#cal';">Back</button>
+	</div>
+</div>
+</body>	
+</html>
